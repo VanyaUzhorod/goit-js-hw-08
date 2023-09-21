@@ -18,10 +18,11 @@ function saveFormData() {
 }
 function onSubmit(event){
     event.preventDefault();
-    emailInput.value = '';
-    messageInput.value = '';
+    event.currentTarget.reset();
     localStorage.removeItem("feedback-form-state");
 }
+console.log({emailInput, messageInput});
+
 
 function dataLocalStorage(){
     const storedData = localStorage.getItem("feedback-form-state");
@@ -31,3 +32,4 @@ function dataLocalStorage(){
         messageInput.value = formData.message;
     }
 }
+dataLocalStorage();
