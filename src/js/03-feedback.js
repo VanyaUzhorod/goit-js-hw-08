@@ -16,12 +16,21 @@ function saveFormData() {
     }
     localStorage.setItem("feedback-form-state", JSON.stringify(formData));
 }
-function onSubmit(event){
+function onSubmit(event) {
     event.preventDefault();
     event.currentTarget.reset();
     localStorage.removeItem("feedback-form-state");
+
+    const {email, message} = event.currentTarget.elements
+
+    const formData = {
+    email: email.value,
+        message: message.value
+    }
+
+   console.log("User Data",formData);
 }
-console.log({emailInput, messageInput});
+
 
 
 function dataLocalStorage(){
