@@ -18,17 +18,20 @@ function saveFormData() {
 }
 function onSubmit(event) {
     event.preventDefault();
-    event.currentTarget.reset();
-    localStorage.removeItem("feedback-form-state");
 
     const {email, message} = event.currentTarget.elements
+    
+   
 
     const formData = {
     email: email.value,
         message: message.value
     }
 
-   console.log("User Data",formData);
+   console.log(formData);
+   localStorage.removeItem("feedback-form-state");
+   event.currentTarget.reset();
+//    formData = {};
 }
 
 
